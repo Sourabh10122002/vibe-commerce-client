@@ -153,7 +153,7 @@ export default function App() {
         onSignupClick={() => setShowSignup(true)}
       />
 
-      <div className="max-w-6xl mx-auto px-6 py-8 min-h-[70vh] flex items-center justify-center">
+      <div className="max-w-6xl mx-auto px-6 py-8 min-h-[70vh]">
         {loadingProducts ? (
           <div className="flex flex-col items-center justify-center">
             <div className="w-12 h-12 border-4 border-gray-300 border-t-black rounded-full animate-spin mb-4"></div>

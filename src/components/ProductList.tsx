@@ -15,14 +15,14 @@ interface ProductListProps {
 
 const ProductList: React.FC<ProductListProps> = ({ products = [], onAdd }) => {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
             {products.map((p) => (
                 <div
                     key={p._id}
                     className="bg-white rounded-2xl shadow-md hover:shadow-lg transition p-4 flex flex-col"
                 >
                     <img
-                        src={p.imageUrl || `https://picsum.photos/seed/${p._id}/400/240`}
+                        src={p.imageUrl}
                         alt={p.name}
                         className="w-full h-48 object-cover rounded-xl mb-4"
                     />

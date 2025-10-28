@@ -32,6 +32,7 @@ export default function App() {
   const [showCart, setShowCart] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
+  const [loadingProducts, setLoadingProducts] = useState(true);
 
   useEffect(() => {
     fetchProducts();
@@ -40,11 +41,14 @@ export default function App() {
 
   async function fetchProducts() {
     try {
+      setLoadingProducts(true);
       const res = await fetch(`${API}/api/products`);
       const data = await res.json();
       setProducts(data);
     } catch (err) {
       console.error("Failed to fetch products", err);
+    } finally {
+      setLoadingProducts(false);
     }
   }
 
@@ -149,8 +153,17 @@ export default function App() {
         onSignupClick={() => setShowSignup(true)}
       />
 
-      <div className="max-w-6xl mx-auto px-6 py-8">
-        <ProductList products={products} onAdd={addToCart} />
+      <div className="max-w-6xl mx-auto px-6 py-8 min-h-[70vh] flex items-center justify-center">
+        {loadingProducts ? (
+          <div className="flex flex-col items-center justify-center">
+            <div className="w-12 h-12 border-4 border-gray-300 border-t-black rounded-full animate-spin mb-4"></div>
+            <p className="text-gray-600 text-lg">Loading products...</p>
+          </div>
+        ) : products.length > 0 ? (
+          <ProductList products={products} onAdd={addToCart} />
+        ) : (
+          <p className="text-gray-500 text-center">No products found.</p>
+        )}
       </div>
 
       {showCart && (

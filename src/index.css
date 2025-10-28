@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+    --yellow: #f6c94d;
+    --muted: #6b7280;
+}
+body {
+    font-family: Inter, system-ui, Arial, sans-serif;
+    margin: 0;
+    background: #fff;
+    color: #111;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+.card .content {
+    padding: 12px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.title {
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+.city {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+.desc {
+    font-size: 13px;
+    color: #666;
+    flex: 1;
+    margin-bottom: 8px;
+}
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn {
+    background: var(--yellow);
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+.cart-panel {
+    position: fixed;
+    right: 20px;
+    top: 80px;
+    width: 340px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+.small {
+    font-size: 13px;
+    color: #555;
+}
+.qnty {
+    width: 60px;
+}
